@@ -1,7 +1,17 @@
+import React from "react";
 import "./App.css";
+import HeaderContainer from "./components/Layout/Header/HeaderContainer";
+import Meals from "./components/Meals/Meals";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <HeaderContainer />
+      <main>
+        <Meals />
+      </main>
+    </>
+  );
 }
 
 export default App;
