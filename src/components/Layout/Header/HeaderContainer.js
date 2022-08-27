@@ -7,8 +7,10 @@ const HeaderContainer = (props) => {
   return (
     <>
       <Header>
-        <h1>ReactMeals</h1>
-        <HeaderCartButton />
+        <a href="/">
+          <h1>ReactMeals</h1>
+        </a>
+        <HeaderCartButton onClick={props.onShowCart} />
       </Header>
       <MainImage>
         <img src={mealsImage} alt="meals" />

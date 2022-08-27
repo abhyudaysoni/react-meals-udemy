@@ -14,6 +14,31 @@ export const Header = styled.header`
   padding: 0 10%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 10;
+  & a {
+    text-decoration: none;
+    color: white;
+  }
+  .bump {
+    animation: bump 300ms ease-out;
+  }
+
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 `;
 export const MainImage = styled.div`
   width: 100%;
@@ -62,5 +87,27 @@ export const Button = styled.button`
   &:hover .badge,
   &:active .badge {
     background-color: #92320c;
+  }
+
+  .bump {
+    animation: bump 300ms ease-out;
+  }
+
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 `;
