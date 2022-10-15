@@ -31,6 +31,12 @@ export const Available = styled.section`
     padding: 0;
   }
 
+  #loading {
+    height: 100px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
   @keyframes meals-appear {
     from {
       opacity: 0;

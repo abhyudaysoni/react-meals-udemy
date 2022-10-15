@@ -5,17 +5,26 @@ import MealItem from "./MealItem/MealItem";
 import { useFetchData } from "../../api/fetch";
 import { useState } from "react";
 import { useEffect } from "react";
+import loading from "../../assets/loading.svg";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState();
+  const [isLoading, setIsloading] = useState(true);
+  const [error, setError] = useState(null);
   const data = useFetchData();
 
   useEffect(() => {
     setMeals(data);
-  }, [data]);
+    if (typeof data === "object") {
+      setIsloading(false);
+    } else {
+      setIsloading(false);
+      setError(data);
+    }
+  }, [data, isLoading]);
 
   let mealsList = [];
-  if (meals) {
+  if (typeof meals === "object") {
     mealsList = meals.map((meal) => (
       <MealItem
         id={meal.id}
@@ -29,7 +38,9 @@ const AvailableMeals = () => {
   return (
     <Available>
       <CardContainer>
-        <ul>{mealsList}</ul>
+        {isLoading && <img id="loading" src={loading} alt="loading" />}
+        {!isLoading && error && <p>{error}</p>}
+        {!isLoading && <ul>{mealsList}</ul>}
       </CardContainer>
     </Available>
   );
